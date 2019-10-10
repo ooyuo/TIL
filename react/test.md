@@ -3,7 +3,7 @@
   
   
   
-~~~
+~~~.javascript
 import React from 'react';
 
 // input에서 뭘 쓸 것인가 고민하고 입력 ,
