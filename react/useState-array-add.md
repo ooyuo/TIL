@@ -1,10 +1,18 @@
 배열에 항목 추가하기
 =============  
   
-기존 배열에 새 항목을 추가해야할 때가 있다.  
-파일은 2가지  
-1. CreateUser.js  
-2. App.js
+여러개의 input이 있고 버튼이벤트가 발생하면 아래 추가된 리스트를 보여준다.  
+  
+## 생각하기  
+1. 두 개의 input을 활용할 것이다. input 두개에 각각 컴포넌트들을 추가한 뒤 각각 초기화한다.  
+3. input의 name을 활용해 input에서 username, email 값을 추출한다.  
+4. onChage()에서 할 일: 이벤트가 발생된 input에서 name과 value를 각각 가져와 기존 input에 추가한다.  
+5. onCreate()에서 할 일: 기존 users에 새로 추가된 user정보를 넣고 input의 value는 깔끔하게 초기화한다. + id값 1씩 올려주기  
+6. CreateUser와 UserList return한다.  
+
+
+
+
   
   
 CreateUser컴포넌트에 필요한 props를 준비한다.  
