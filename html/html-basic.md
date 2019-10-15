@@ -1,0 +1,48 @@
+HTML 문법  
+=============  
+  
+아래는 HTML의 기본 형태이다. 열린 태그, 닫힌 태그로 구성된다.  
+<TAG></TAG>   
+시작하고 종료되는 구조라고도 한다.  
+  
+
+## Attributes와 value  
+태그의 기능을 확장하기 위해 속성을 사용한다.  
+<TAG 속성="값"></TAG>  
+  
+
+<img src="..." alt="..." />  
+이미지를 삽입할때는 <img /> 태그를 사용하고 src로 이미지의 위치를 지정한다. 웹 주소인 경우 url형식으로, 로컬내에 있는   경우 파일경로명을 입력한다.   
+alt는 이미지를 출력하지 못하는 상황에 이미지 대신 보여질 텍스트를 지정한다.  
+  
+
+
+## HTML 문서의 범위  
+<!-- HTML 5 -->  
+<!DOCTYPE html>  
+<html>  
+  <head>  
+    문서의 정보 <!-- 타이틀, link, <style>직접 입력 -->  
+  </head>  
+  <body>  
+    문서의 구조  
+  </body>  
+</html>  
+  
+
+
+## DOCTYPE이란?  
+DTD(Document Type Definition)은 마크업 언어에서 문서형식을 정의한다.  
+HTML문서를 어떤 HTML 버전의 해석방식으로 구조화하면 되는지를 알려준다.  
+현재 표준 모드는 HTML5이다.  
+  
+
+  
+## META(웹 페이지의 정보)  
+<meta>에서 사용할 수 있는 속성  
+- charset: 문자인코딩 방식(UTF-8, EUC-KR 등)  
+- name: 검색엔진 등에 제공하기 위한 정보의 종류(author,     description, ketwords, viewport 등)  
+- content: name이나 http-equiv 속성의 값 제공  
+
+
+
