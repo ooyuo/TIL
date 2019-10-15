@@ -47,7 +47,7 @@ function User( {user, onRemove, onToggle } ) {
     // 첫번째 파라미터: 함수, 두번째 파라미터: 배열(deps)  
     // 만약 deps배열을 비우게 되면 컴포넌트가 처음 나타날때만 함수가 호출됨  
     useEffect(() => {  
-        console  
+        console.log(user);
     });  
 ```  
 deps파라미터를 생략했을 경우 컴포넌트가 리랜더링 될 때마다 호출된다.  
