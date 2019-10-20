@@ -45,7 +45,7 @@ HTML문서를 어떤 HTML 버전의 해석방식으로 구조화하면 되는지
 
 <meta>에서 사용할 수 있는 속성  
 - charset: 문자인코딩 방식(UTF-8, EUC-KR 등)  
-- name: 검색엔진 등에 제공하기 위한 정보의 종류(author,     description, ketwords, viewport 등)  
+- name: 검색엔진 등에 제공하기 위한 정보의 종류(author, description, ketwords, viewport 등)  
 - content: name이나 http-equiv 속성의 값 제공  
   
   
@@ -54,12 +54,12 @@ HTML문서를 어떤 HTML 버전의 해석방식으로 구조화하면 되는지
 ```javascript
 <meta charset="utf-8>
 ```  
-<pre><code>utf-8</code></pre>은 웹페이지에서 어떤 문자라도 취급할 수 있다는 것을 의미한다.  
+utf-8은 웹페이지에서 어떤 문자라도 취급할 수 있다는 것을 의미한다.  
   
   
 ### 4.2 저자와 설명을 추가  
   
-<pre><code> <meta> </code></pre>요소는 name과 content라는 속성을 가진다.  
+<meta>요소는 name과 content라는 속성을 가진다.  
 - name: 메타 요소가 어떤 정보의 형태를 갖고 있는지 알려준다.  
 - content: 실제 메타데이터의 컨텐츠이다.  
   
@@ -72,4 +72,4 @@ HTML문서를 어떤 HTML 버전의 해석방식으로 구조화하면 되는지
   
   
 ### 5.1 링크의 구조  
-내부링크로 전환할 <pre><code> <a> </code></pre>요소를, 그리고 가리키는 링크로 <pre><code> <href> </code></pre>요소가 있다.  
+내부링크로 전환할 <a>요소를, 그리고 가리키는 링크로 <href>요소가 있다.  
