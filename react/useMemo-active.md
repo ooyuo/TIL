@@ -11,6 +11,28 @@ useMemo를 사용하여 연산한 값 재사용하기
 useMemo를 사용해서 최적화작업을 한다.  
     
   
+```javascript
+const [users, setUsers] = useState([
+    {
+        id: 1,
+        username: 'doyoun',
+        email: 'doyoun525@naver.com',
+        active: true
+    },
+    {
+        id: 2,
+        username: 'woohuck',
+        email: 'woo@naver.com',
+        active: false
+    },
+    {
+        id: 3,
+        username: 'ddoddo',
+        email: 'ddoddo@naver.com',
+        active: false
+    }
+]); // active값을 설정함
+```
 ```javascript  
 function countActiveUsers(users) {  
   console.log("활성 사용자 수를 세는중...");  
