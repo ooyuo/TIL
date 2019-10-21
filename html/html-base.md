@@ -1,4 +1,4 @@
-## <base /> 란?
+## base tag
 
 HTML문서에 포함된 모든 상대 URL들의 기준 URL을 설정한다.
 
