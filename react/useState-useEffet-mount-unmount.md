@@ -50,27 +50,4 @@ function User( {user, onRemove, onToggle } ) {
         console.log(user);
     });  
 ```  
-deps파라미터를 생략했을 경우 컴포넌트가 리랜더링 될 때마다 호출된다.  
-  
-  
-## 핵심  
-> useEffect안에서 사용하는 상태나, props가 있다면 deps에 넣어줘야한다. 만약 넣지않는다면 useEffect에 등록된 함수가 실행될 때 최신 props를 가르키지   않는다.  
-  
-## 핵심  
-> useEffect안에서 사용하는 상태나, props가 있다면 deps에 넣어줘야한다. 만약 넣지않는다면 useEffect에 등록된 함수가 실행될 때 최신 props를 가르키지   않는다.  
-  
-## 핵심  
-> useEffect안에서 사용하는 상태나, props가 있다면 deps에 넣어줘야한다. 만약 넣지않는다면 useEffect에 등록된 함수가 실행될 때 최신 props를 가르키지   않는다.  
-  
-## 핵심  
-> useEffect안에서 사용하는 상태나, props가 있다면 deps에 넣어줘야한다. 만약 넣지않는다면 useEffect에 등록된 함수가 실행될 때 최신 props를 가르키지   않는다.  
-  
-## 핵심  
-> useEffect안에서 사용하는 상태나, props가 있다면 deps에 넣어줘야한다. 만약 넣지않는다면 useEffect에 등록된 함수가 실행될 때 최신 props를 가르키지   않는다.  
-  
-## 핵심  
-> useEffect안에서 사용하는 상태나, props가 있다면 deps에 넣어줘야한다. 만약 넣지않는다면 useEffect에 등록된 함수가 실행될 때 최신 props를 가르키지   않는다.    
-## 핵심  
-> useEffect안에서 사용하는 상태나, props가 있다면 deps에 넣어줘야한다. 만약 넣지않는다면 useEffect에 등록된 함수가 실행될 때 최신 props를 가르키지   않는다.    
-## 핵심  
-> useEffect안에서 사용하는 상태나, props가 있다면 deps에 넣어줘야한다. 만약 넣지않는다면 useEffect에 등록된 함수가 실행될 때 최신 props를 가르키지   않는다.  
+deps파라미터를 생략했을 경우 컴포넌트가 리랜더링 될 때마다 호출된다.   
