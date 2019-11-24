@@ -44,3 +44,8 @@
 #### 3.6. etc..
   - [Form data validation](https://github.com/ooyuo/TIL/blob/master/react/2019-11-12-form-data-validation.md)
   - [proptypes 타입체킹](https://github.com/ooyuo/TIL/blob/master/react/2019-10-31-proptypes-01.md)
+  
+
+
+### 4. git
+ - [gitignore 작성 규칙](https://github.com/ooyuo/TIL/blob/master/git/2019-11-23-git-01.md)
