@@ -54,7 +54,6 @@
 
 ### 5. nodejs
  - [express routing](https://github.com/ooyuo/TIL/blob/master/nodejs/2019-11-29-nodejs-01.md)
- - 
- 
+ - [nodejs에 Babel 적용하기](https://github.com/ooyuo/TIL/blob/master/nodejs/2019-12-02-nodejs-02.md)
 
  
