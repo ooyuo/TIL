@@ -13,6 +13,8 @@
 ### 2. javascript
   - [async function](https://github.com/ooyuo/TIL/blob/master/javascript/2019-11-03-async/await.md)
   - [map](https://github.com/ooyuo/TIL/blob/master/javascript/2019-10-28-map01.md)
+  - [vanillaJS coding Challenge](https://github.com/ooyuo/TIL/blob/master/javascript/2019-12-05-javascript-01.js)
+  - [vanillaJS coding Challenge](https://github.com/ooyuo/TIL/blob/master/javascript/2019-12-06-javascript-02.js)
   
   
 ### 3. React
