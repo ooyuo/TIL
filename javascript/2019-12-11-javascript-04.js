@@ -10,46 +10,49 @@ const FINISHED = "FINISHED";
 
 let pendingTasks, finishedTasks; // localStorage에서 불러온 값을 넣어줌
 
-function getTaskObject(text) {
+function getTaskObject(text) { // id 할당
   return {
     id: String(Date.now()),
     text
   };
-}
+} 
 
-function savePendingTask(task) {
+function savePendingTask(task) { // 
   pendingTasks.push(task);
 }
 
-
-function findInFinished(taskId) {
+function findInFinished(taskId) { // id값 찾기
   return finishedTasks.find(function(task) {
     return task.id === taskId;
   });
 }
 
-function findInPending(taskId) {
+function findInPending(taskId) { // id값 찾기
   return pendingTasks.find(function(task) {
     return task.id === taskId;
   });
 }
-function removeFromPending(taskId) {
+
+function removeFromPending(taskId) { // pendinngList에서 삭제버튼 클릭
   pendingTasks = pendingTasks.filter(function(task) {
     return task.id !== taskId;
   });
 }
 
-function removeFromFinished(taskId) {
+function removeFromFinished(taskId) { // finishedList에서 삭제버튼 클릭
   finishedTasks = finishedTasks.filter(function(task) {
     return task.id !== taskId;
   });
 }
-function addToFinished(task) {
+
+function addToFinished(task) { // pending -> finished로 옮겨짐
   finishedTasks.push(task);
 }
-function addToPending(task) {
+
+function addToPending(task) { // finished -> pending으로 옮겨짐
   pendingTasks.push(task);
 }
+
 function deleteTask(e) {
   /*
   1. 클릭된 li 삭제
@@ -63,7 +66,15 @@ function deleteTask(e) {
   removeFromPending(li.id);
   saveState();
 }
+
 function handleFinishClick(e) {
+/*
+1. 삭제할 노드를 가져와서 삭제
+2. 목록에서 id값을 찾아 지움
+3. finishedList에 추가
+4. finishedList html 그려주기
+4. localStorage에 저장
+*/  
   const li = e.target.parentNode;
   li.parentNode.removeChild(li);
   const task = findInPending(li.id);
@@ -72,7 +83,15 @@ function handleFinishClick(e) {
   paintFinishedTask(task);
   saveState();
 }
+
 function handleBackClick(e) {
+/*
+1. 삭제할 노드를 가져와서 삭제
+2. 목록에서 id값을 찾아 지움
+3. pendingList에 추가
+4. pendingList html 그려주기
+4. localStorage에 저장
+*/
   const li = e.target.parentNode;
   li.parentNode.removeChild(li);
   const task = findInFinished(li.id);
@@ -81,7 +100,8 @@ function handleBackClick(e) {
   paintPendingTask(task);
   saveState();
 }
-function paintPendingTask(task) {
+
+function paintPendingTask(task) { // 할목록 html로 그려주기 + 클릭 이벤트
   /*
   1. li, span, button 만들기
   2. 엘리먼트에 값 부여
@@ -104,7 +124,8 @@ function paintPendingTask(task) {
     pendingList.append(li);
 
 }
-function paintFinishedTask(task) {
+
+function paintFinishedTask(task) { // 완료목록 html로 그려주기 + 클릭 이벤트
   /*
   1. li, span, button 만들기
   2. 엘리먼트에 값 부여
@@ -126,16 +147,18 @@ function paintFinishedTask(task) {
  li.append(backBtn);
  finishedList.append(li);
 }
-function saveState() {
+
+function saveState() { // localStorage에 string으로 값 저장
   localStorage.setItem(PENDING, JSON.stringify(pendingTasks));
   localStorage.setItem(FINISHED, JSON.stringify(finishedTasks));
 }
-function loadState() {
+
+function loadState() { // localStorage에서 tasks를 가져옴
   pendingTasks = JSON.parse(localStorage.getItem(PENDING)) || [];
   finishedTasks = JSON.parse(localStorage.getItem(FINISHED)) || [];
 }
 
-function restoreState() {
+function restoreState() { // html로 그려줌
   pendingTasks.forEach(function(task) {
     paintPendingTask(task);
   });
@@ -143,6 +166,7 @@ function restoreState() {
     paintFinishedTask(task);
   });
 }
+
 function handleFormSubmit(e) {
   /*
   1. input 값 가져오기
@@ -153,18 +177,19 @@ function handleFormSubmit(e) {
  e.preventDefault();
  const taskObj = getTaskObject(input.value);
  input.value = "";
- paintPendingTask(taskObj);
- savePendingTask(taskObj);
- saveState();
+ paintPendingTask(taskObj); // HTML에서 그려줌
+ savePendingTask(taskObj); // 내부적으로 저장
+ saveState(); // 상태를 localStorage에 저장
 }
+
 function init() {
   /* 
   1. submit이벤트 할당
   2. localStorage에서 값 가져오기
-  3. 상태 재저장
+  3. paintPendingTask, paintFinishedTask 저장 
   */
   form.addEventListener("submit", handleFormSubmit);
   loadState();
-  restoreState();
+  restoreState(); 
 }
 init();
