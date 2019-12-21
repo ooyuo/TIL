@@ -15,7 +15,13 @@
   - [map](https://github.com/ooyuo/TIL/blob/master/javascript/2019-10-28-map01.md)
   - [vanillaJS coding Challenge](https://github.com/ooyuo/TIL/blob/master/javascript/2019-12-05-javascript-01.js)
   - [vanillaJS coding Challenge](https://github.com/ooyuo/TIL/blob/master/javascript/2019-12-06-javascript-02.js)
+  - [vanillaJS coding Challenge](https://github.com/ooyuo/TIL/blob/master/javascript/2019-12-06-javascript-03.js)
+  - [vanillaJS coding Challenge](https://github.com/ooyuo/TIL/blob/master/javascript/2019-12-06-javascript-04.js)
+  - [vanillaJS coding Challenge](https://github.com/ooyuo/TIL/blob/master/javascript/2019-12-06-javascript-05.js)
+  - [vanillaJS coding Challenge](https://github.com/ooyuo/TIL/blob/master/javascript/2019-12-06-javascript-06.js)
+  - [vanillaJS coding Challenge](https://github.com/ooyuo/TIL/blob/master/javascript/2019-12-06-javascript-07.js)
   
+
   
 ### 3. React
 #### 3.1 Hooks - useMemo
@@ -57,6 +63,10 @@
 ### 5. nodejs
  - [express routing](https://github.com/ooyuo/TIL/blob/master/nodejs/2019-11-29-nodejs-01.md)
  - [nodejs에 Babel 적용하기](https://github.com/ooyuo/TIL/blob/master/nodejs/2019-12-02-nodejs-02.md)
- - 
+
+
+
+### 6. Pug
+ - [템플릿 엔진 pug의 속성과 문법](https://github.com/ooyuo/TIL/tree/master/pug)
 
  
