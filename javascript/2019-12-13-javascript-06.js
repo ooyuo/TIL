@@ -1,6 +1,4 @@
 
-
-/*
 import "./styles.css";
 
 const result = document.querySelector(".js-result");
@@ -86,7 +84,7 @@ operations.forEach(function(operation) {
 });
 reset.addEventListener("click", handleReset);
 equals.addEventListener("click", handleEqualsClick);
-*/
+
 /*
 import "./styles.css";
 
