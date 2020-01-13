@@ -1,84 +1,138 @@
 import "./styles.css";
-const form = document.querySelector("form");
-const input = document.querySelector("input");
-const pendingList = document.querySelector(".pendingList");
-const finishedList = document.querySelector(".finished");
 
-const PENDING = "Pending";
+const form = document.querySelector(".js-form"),
+  input = form.querySelector(".js-input"),
+  pendingList = document.querySelector(".pendingList"),
+  finishedList = document.querySelector(".finishedList");
+
+const PENDING = "pending";
 const FINISHED = "finished";
 
-let pendingTasks = [];
-
-function getTaskObject(task) {
-  return {
-    id: pendingTasks.length + 1,
-    task
-  };
+let pendingTasks, finishedTasks;
+function savePendingTask(task) {
+  //
+  pendingTasks.push(task);
 }
-
-function handleDeletePending(e) {
+function saveState() {
+  localStorage.setItem(PENDING, JSON.stringify(pendingTasks));
+  localStorage.setItem(FINISHED, JSON.stringify(finishedTasks));
+}
+function addToFinished(task) {
+  finishedTasks.push(task);
+}
+function addToPending(task) {
+  pendingTasks.push(task);
+}
+function findInPending(taskId) {
+  return pendingTasks.find(function(task) {
+    return task.id === taskId;
+  });
+}
+function findInFinished(taskId) {
+  return finishedTasks.find(function(task) {
+    return task.id === taskId;
+  });
+}
+function removeFromFinished(taskId) {
+  finishedTasks = finishedTasks.filter(function(task) {
+    return task.id !== taskId;
+  });
+}
+function removeFromPending(taskId) {
+  pendingTasks = pendingTasks.filter(function(task) {
+    return task.id !== taskId;
+  });
+}
+function handleSwitchTo_F(e) {
   const li = e.target.parentNode;
   li.parentNode.removeChild(li);
-  pendingTasks = pendingTasks.filter(function(task) {
-    return task.id !== li.id;
-  });
+  const task = findInPending(li.id);
+  removeFromPending(li.id);
+  addToFinished(task);
+  printFinishedTask(task);
   saveState();
 }
-
-function saveState() {
-    localStorage.setItem(PENDING, JSON.stringify(pendingTasks));
-    //localStorage.setItem(FINISHED, JSON.stringify(finishedTasks));
+function handleSwitchTo_P(e) {
+  const li = e.target.parentNode;
+  li.parentNode.removeChild(li);
+  const task = findInFinished(li.id);
+  removeFromFinished(li.id);
+  addToPending(task);
+  printPendingTask(task);
+  saveState();
 }
-function printPendingList(taskObj) {
+function handleDeleteTasks(e) {
+  const li = e.target.parentNode;
+  li.parentNode.removeChild(li);
+  removeFromFinished(li.id);
+  removeFromPending(li.id);
+  saveState();
+}
+function printPendingTask(taskObj) {
+  const li = document.createElement("li");
+  const span = document.createElement("span");
+  const delBtn = document.createElement("button");    
+  const changeTo_F = document.createElement("button");
+  li.id = taskObj.id; 
+
+  span.innerText = taskObj.taks;
+  delBtn.innerText = "❌";
+  changeTo_F.innerText = "✅";
+
+  span.append(delBtn, changeTo_F);
+  li.append(span);
+  pendingList.appendChild(li);
+
+  delBtn.addEventListener("click", handleDeleteTasks);
+  changeTo_F.addEventListener("click", handleSwitchTo_F);
+}
+function printFinishedTask(tasks) {
   const li = document.createElement("li");
   const span = document.createElement("span");
   const delBtn = document.createElement("button");
-  const toSwitch = document.createElement("button");
-  
-  span.innerText = taskObj.task;
+  const changeTo_P = document.createElement("button");
+
+  span.innerText = tasks.task;
   delBtn.innerText = "❌";
-  toSwitch.innerText = "💨";
-  li.id = taskObj.id;
-  console.log(li.id);
+  changeTo_P.innerText = "💨";
+  li.id = tasks.id;
 
-  li.appendChild(span);
-  li.appendChild(delBtn);
-  li.appendChild(toSwitch);
-  pendingList.appendChild(li);
+  span.append(delBtn, changeTo_P);
+  li.append(span);
+  finishedList.appendChild(li);
 
-  delBtn.addEventListener("click", handleDeletePending);
+  delBtn.addEventListener("click", handleDeleteTasks);
+  changeTo_P.addEventListener("click", handleSwitchTo_P);
 }
-
-function savePendingTask(task) {
-  console.log("save");
-  console.log(task);
-  pendingTasks.push(task);
-  console.log(pendingTasks);
+function getTaskObject(task) {
+  return {
+    id: String(Date.now()),
+    task
+  };
 }
-
-function handleSubmit(e) {
+function restoreState() {
+  pendingTasks.forEach(function(task) {
+    printPendingTask(task);
+  });
+  finishedTasks.forEach(function(task) {
+    printFinishedTask(task);
+  });
+}
+function loadState() {
+  pendingTasks = JSON.parse(localStorage.getItem(PENDING)) || [];
+  finishedTasks = JSON.parse(localStorage.getItem(FINISHED)) || [];
+}
+function handleFormSubmit(e) {
   e.preventDefault();
   const taskObj = getTaskObject(input.value);
-  console.log(taskObj);
   input.value = "";
-  printPendingList(taskObj);
+  printPendingTask(taskObj);
   savePendingTask(taskObj);
   saveState();
 }
-// function restoreState() {
-//   pendingTasks.forEach(function(task) {
-//     printPendingList(task);
-//   });
-// }
-
-function loadState() {
-  pendingTasks = JSON.parse(localStorage.getItem(PENDING)) || [];
-  //finishedTasks = JSON.parse(localStorage.getItem(FINISHED)) || [];
-}
-
 function init() {
-  form.addEventListener("submit", handleSubmit);
+  form.addEventListener("submit", handleFormSubmit);
   loadState();
- // restoreState();
+  restoreState();
 }
 init();
