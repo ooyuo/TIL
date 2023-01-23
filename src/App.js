@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useMemo, useCallback } from "react";
 import Hello from "./Hello";
 import Wrapper from "./Wrapper";
 import Counter from "./Counter";
@@ -6,34 +6,48 @@ import InputSample from "./InputSample";
 import UserList from "./UserList";
 import CreateUser from "./CreateUser";
 
+function countActiveUsers(users) {
+  console.log("활성 사용자 수를 세는중...");
+  return users.filter((user) => user.active).length;
+}
+
 function App() {
   const [inputs, setInputs] = useState({
     username: "",
     email: "",
   });
   const { username, email } = inputs;
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
-  };
+  const onChange = useCallback(
+    // useCallback: 함수 재사용
+    // inputs가 바뀔 때만 함수가 실행되고 그렇지 않으면 함수를 재사용함
+    // 눈에 띄는 성능 최적화는 없음,, 컴포넌트를 최적화해야 눈에 띄게 성능이 최적화됨
+    (e) => {
+      const { name, value } = e.target;
+      setInputs({
+        ...inputs,
+        [name]: value,
+      });
+    },
+    [inputs],
+  );
   const [users, setUsers] = useState([
     {
       id: 1,
       username: "velopert",
       email: "velopert@gmail.com",
+      active: true,
     },
     {
       id: 2,
       username: "tester",
       email: "tester@gmail.com",
+      active: false,
     },
     {
       id: 3,
       username: "chole",
       email: "chole@gmail.com",
+      active: false,
     },
   ]);
 
@@ -41,13 +55,14 @@ function App() {
   const nextId = useRef(4);
 
   // 불변성 지키면서 배열에 항목추가하기
-  const onCreate = () => {
+  const onCreate = useCallback(() => {
     const user = {
       id: nextId.current,
       username,
       email,
     };
-    setUsers([...users, user]);
+    // 함수형으로 useState를 사용하면, deps에 디펜던시를 넣지않아도됨 -> 리랜더링 방지
+    setUsers((users) => [...users, user]);
     // setUsers(users.concat(user)); -> 새로운 배열을 만들어서 그 뒤에 user를 붙여줌
     setInputs({
       username: "",
@@ -56,10 +71,31 @@ function App() {
 
     console.log(nextId.current); // 4
     nextId.current += 1;
-  };
-  const onRemove = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
-  };
+  }, [username, email]);
+
+  const onRemove = useCallback((id) => {
+    setUsers((users) => users.filter((user) => user.id !== id));
+  }, []);
+  // 배열에 항목 수정하기
+  /*
+  1. App.js에서 함수 작성하기
+  2. UserList 컴포넌트에 함수 전달하기
+  3. UserList 컴포넌트에서 함수를 받아서 User 컴포넌트에 함수 전달하기
+  4. User 컴포넌트에서 함수를 받아서 사용하기
+  */
+  const onToggle = useCallback((id) => {
+    setUsers((users) =>
+      users.map((user) =>
+        user.id === id ? { ...user, active: !user.active } : user,
+      ),
+    );
+  }, []);
+
+  // useMemo: 값을 재사용
+  // users가 바뀔때만 호출되고 그게 아니면 이전 값을 재사용함
+  // useMemo로 감싸주지 않을 경우 input의 값이 change 될때마다 활성사용자수 함수도 게속 랜더링됨 -> useMemo로 감싸주어서 컴포넌트 성능 최적화용
+  const count = useMemo(() => countActiveUsers(users), [users]);
+
   return (
     <>
       <div>
@@ -83,7 +119,8 @@ function App() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} onRemove={onRemove} />
+      <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
+      <div>활성 사용자 수: {count}</div>
     </>
   );
 }
