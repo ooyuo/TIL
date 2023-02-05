@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./main.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <!--div는 focus 가 원래 가능하지않은데 focus를 가능하게 하기위해 tabindex를 -1로 지정함 -->
+  <div class="box" tabindex="-1"></div>
+  <hr />
+  <input type="text" />
+  <div class="box">Chloe</div>
+  <hr />
+  <input type="text" />
+  <input type="password" />
+  <!-- data- 전역속성 사용 -->
+  <span data-fruit-name="apple">사과</span>
+  <hr />
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+  <hr />
+  <!-- inline style로 선언한 css는 1000점, 점수가 너무 높아지기 때문에 되도록 쓰지 않는걸로-->
+  <div id="hello" class="hello" style="color: orange;">Hello world!</div>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  transition: 1s;
+}
+
+.box:focus {
+  width: 300px;
+  background-color: royalblue;
+}
+
+input {
+}
+
+input:focus {
+  background-color: orange;
+}
+
+.box::after {
+  /* ::before, ::after에 content를 사용하지 않더라도 언급해줘야 동작함 */
+  content: "";
+  /* inline요소를 block요소로 */
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: royalblue;
+}
+
+[type="password"] {
+  background-color: orange;
+}
+
+[data-fruit-name] {
+  color: red;
+}
+
+/* 
+상속되는 CSS 속성들 - 글자/문자 관련 속성
+- font-style: 글자 기울기
+- font-weight: 글자 두께
+- font-size: 글자 크기
+- line-height: 줄 높이
+- font-family: 폰트(서체)
+- color: 글자 색상
+- text-align: 정렬
+*/
+.parent {
+  width: 300px;
+  height: 200px;
+  background-color: red;
+}
+
+.child {
+  width: 100px;
+  /* 
+  inherit: 강제 상속
+  height라는 속성은 기본적으로 상속되는 속성이 아니나, inherit을 줌으로써 parent의 height을 상속받아서 같은 높이를 가지게 됨 */
+  height: inherit;
+  background-color: inherit;
+  position: fixed;
+  top: 400px;
+  right: 10px;
+}
+
+/* 우선 순위 : 같은 요소가 여러 선언의 대상이 된 경우, 어떤 선언의 CSS 속성을 우선 적용할지 결정하는 방법
+- 점수가 높은 선언이 우선
+- 점수가 같다면, *가장 마지막에 해석된 선언*이 우선
+*/
+
+div {
+  font-size: 70px;
+}
+
+/* class 선택자: 10점 */
+.hello {
+  color: red;
+}
+
+/* id 선택자: 100점 */
+#hello {
+  color: blue;
+}
+
+/* 태그 선택자+class 선택자: 11점 */
+div.hello {
+}
+
+/* !important: 9999999999점, 사용하지 않는걸 권장 */
+.hello {
+  color: red !important;
+}
+
+/* 0점 */
+* {
+}
