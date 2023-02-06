@@ -10,6 +10,177 @@
 </head>
 
 <body>
+  <h2>inline요소를 position을 지정하여 block으로 만들기</h2>
+  <div class="property__position-switch-inline-to-block">
+    <span>123</span>
+  </div>
+
+  <hr />
+  <h2>position- z-index</h2>
+  <div class="property__position-z-index">
+    <div class="container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+    </div>
+  </div>
+  <hr />
+  <h2>position- static, relative, absolute, fixed</h2>
+  <div class="property__position">
+    <div class="container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+    </div>
+  </div>
+  <hr />
+  <h2>background</h2>
+  <div class="property__background">
+    <div></div>
+  </div>
+  <hr />
+  <h2>a, p</h2>
+  <div class="property__a-p">
+    <a href="https://google.com">
+      Google
+    </a>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis similique recusandae saepe sint nisi
+      aliquid maxime! Expedita, autem voluptatem? Recusandae consequuntur temporibus animi modi minima aliquid ex
+      accusamus placeat!</p>
+
+  </div>
+  <hr />
+  <h2>fonts</h2>
+  <div class="property___fonts">
+    <h1>Hello world</h1>
+    <p>Lorem ipum is simply dummy text of the printing and typesetting industry.</p>
+  </div>
+  <hr />
+  <h2>opacity</h2>
+  <div class="property__opacity">
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+  </div>
+  <hr />
+  <h2>display</h2>
+  <div class="property__display">
+    <!--  
+    display
+    block: 상자(레이아웃)요소
+    inline: 글자요소
+    inline-block: 글자+상자 요소
+    flex: 1차원 레이아웃
+    grid: 2차원 레이아웃
+    none: 화면에서 사라짐
+    기타: table, table-row, table-cell
+    -->
+    <span>Hello world</span>
+  </div>
+  <hr />
+  <h2>overflow</h2>
+  <div class="property__overflow">
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+  </div>
+  <hr />
+  <h2>box-sizing</h2>
+  <div class="property__box-sizing">
+    <div class="item">Hello</div>
+    <div class="item">Hello</div>
+  </div>
+  <hr />
+  <h2>border</h2>
+  <div class="property__border">
+    <!--  
+    border-width: top,right,bottom,left;
+    border-width: top,bottom left,right;
+    border-width: top left,right bottom;
+    border-width: top right bottom left; 
+    ** border-color도 마찬가지
+
+    색상표현
+    색상이름: 브라우저에서 제공하는 색상이름 -> red, tomato, royalblue
+    Hex 색상코드: 16진수 색상 -> #000, #FFFFFF
+    RGB: 빛의 삼원색 -> rgb(255,255,255)
+    RGBA: 빛의 삼원색+투명도 -> rgba(0,0,0,0.5)
+
+    border-top: 두께 종류 색상;
+    border-top-width: 두께;
+    border-top-style: 종류;
+    border-right-color: 색상;
+    -->
+    <div class="container">
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </div>
+  <hr />
+  <h2>padding</h2>
+  <div class="property__padding">
+    <!--  
+    padding: top,right,bottom,left
+    padding: top,bottom left,right
+    padding: top let,right bottom
+    padding: top right bottom left
+    -->
+    <div class="container">
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </div>
+  <hr />
+  <h2>margin</h2>
+  <div class="property__margin">
+    <!--  
+    margin: 40px 30px 20px
+    40px: top
+    30px: left right
+    20px: bottom
+
+    margin: 20px 10px
+    20px: top bottom
+    10px: left right
+    -->
+    <div class="container">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </div>
+  <hr />
+  <h2>Units</h2>
+  <div class="property__units">
+    <!--  
+    단위
+    -px: 픽셀
+    -%: 상대적 백분율
+    -em: 요소의 글꼴 크기
+    -rem: 루트 요소(html)의 글꼴 크기
+    -vw: 뷰포트 가로 너비의 백분율
+    -vh: 뷰포트 세로 너비의 백분율
+    em단위의 기준은: 요소의 글꼴 크기
+    *** 0 이라는 수치에는 단위를 붙이지 말 것
+    -->
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+  </div>
+  <hr />
+  <h2>width, height</h2>
+  <div class="property__width-height">
+    <!-- 
+    width, height 속성의 기본값: auto
+    max-width, max-height 속성의 기본값: none
+    min-width, min-height 속성의 기본값: 0
+    -->
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+  </div>
+
+  <hr />
   <!--div는 focus 가 원래 가능하지않은데 focus를 가능하게 하기위해 tabindex를 -1로 지정함 -->
   <div class="box" tabindex="-1"></div>
   <hr />
@@ -21,8 +192,8 @@
   <!-- data- 전역속성 사용 -->
   <span data-fruit-name="apple">사과</span>
   <hr />
-  <div class="parent">
-    <div class="child"></div>
+  <div class="parent_">
+    <div class="child_"></div>
   </div>
   <hr />
   <!-- inline style로 선언한 css는 1000점, 점수가 너무 높아지기 때문에 되도록 쓰지 않는걸로-->

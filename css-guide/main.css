@@ -1,3 +1,320 @@
+html {
+  font-size: 16px;
+}
+.property__position-switch-inline-to-block {
+  height: 150px;
+}
+.property__position-switch-inline-to-block span {
+  width: 100px;
+  height: 100px;
+  background: orange;
+  font-size: 40px;
+  position: absolute;
+}
+.property__position-z-index {
+  height: 250px;
+}
+.property__position-z-index .container {
+  /*
+  요소 쌓임 순서(stack order): 어떤 요소가 사용자와 더 가깝게 있는지(위에 쌓이는지) 결정
+  1. 요소에 position 속성의 값이 있는 경우 위에 쌓임 (기본값 static 제외)
+  2. 1번 조건이 같은 경우, z-index 속성의 숫자값이 높을 수록 위에 쌓임
+  3. 1번과 2번 조건까지 같은 경우, HTML의 다음 구조(더 나중에 작성될 수록)일 수록 위에 쌓임
+  */
+  width: 300px;
+  background-color: royalblue;
+  position: relative;
+}
+.property__position-z-index .container .item {
+  width: 100px;
+  height: 100px;
+  border: 4px dashed red;
+  background-color: orange;
+}
+.property__position-z-index .container .item:nth-child(1) {
+  position: relative;
+  z-index: 1;
+}
+.property__position-z-index .container .item:nth-child(2) {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+.property__position-z-index .container .item:nth-child(3) {
+  position: fixed;
+  z-index: 1;
+}
+.property__position .container {
+  /* 
+position 요소의 위치 지정 기준
+static: 기준 없음
+relative: 요소 자신을 기준
+absolute: 위치 상 부모 요소를 기준
+fixed: 뷰포트(브라우저)를 기준
+
+position과 같이 사용하는 css 속성들
+[top, bottom, left, right, z-index] 사용가능, 음수도 가능
+
+top, bottom, left, right
+auto: 브라우저가 계산(기본값)
+단위
+*/
+  width: 300px;
+  background-color: royalblue;
+}
+.property__position .container .item {
+  border: 4px dashed red;
+  background-color: orange;
+}
+.property__position .container .item:nth-child(1) {
+  width: 100px;
+  height: 70px;
+}
+.property__position .container .item:nth-child(2) {
+  width: 140px;
+  height: 70px;
+  position: relative;
+  top: 30px;
+  left: 200px;
+}
+.property__position .container .item:nth-child(3) {
+  width: 70px;
+  height: 120px;
+}
+.property__background div {
+  /* 
+background-color
+transparent: 투명함(기본값)
+색상: 지정 가능한 색상
+
+background-image
+none: 이미지없음
+url("경로"): 이미지 경로
+
+background-repeat
+repeat: 이미지를 수직, 수평 반복(기본값)
+repeat-x: 이미지를 수평 반복
+repeat-y: 이미지를 수직 반복
+no-repeat: 반복 없음
+
+background-position (요소의 배경이미지 위치)
+0% 0%: 0% ~ 100% 사이 값 (기본값) - 잘 쓰지 않음
+방향: top, bottom, left, right, center
+단위: px, em, rem
+
+background-size 요소의 배경이미지 크기
+auto: 이미지의 실제 크기(기본값)
+단위: px, em, rem 등 단위로 지정
+cover: 비율을 유지, 요소의 더 넓은 너비에 맞춤
+contain: 비율을 유지, 요소의 더 짧은 너비에 맞춤
+
+background-attachment 요소의 배경 이미지 스크롤 특성
+scroll: 이미지가 요소를 따라서 같이 스크롤
+fixed: 이미지가 뷰포트에 고정, 스크롤 X
+
+요소 배경에 이미지를 삽입하는 속성: background-image
+요소 배경에 이미지를 삽입할 때 사용하는 함수: url("이미지경로")
+배경 이미지를 반복하지 않는 속성 값: no-repeat
+요소가 스크롤될때 배경이미지는 뷰포트에 고정되는 속성 값: fixed
+*/
+  width: 200px;
+  height: 200px;
+  background-color: orange;
+  background-image: url("https://assets.codepen.io/t-1/user-default-avatar.jpg?format=auto&version=0&width=80&height=80");
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-attachment: scroll;
+}
+.property__a-p a {
+  /* 
+text-align
+left: 기본값
+right
+center
+jusify: 양쪽 정렬
+
+text-decoration
+none: 장식없음 (기본값)
+underline: 밑줄
+line-through: 중앙선
+
+text-indent
+0: 들여쓰기 없음
+단위: px, em, rem 등 단위로 지정
+
+문자를 수평정렬: text-align
+문자를 들여쓰는(내어쓰는) 속성: text-indent
+*/
+  display: block;
+  width: 200px;
+  height: 100px;
+  background-color: orange;
+  font-size: 22px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  line-height: 100px;
+}
+.property__a-p p {
+  font-size: 24px;
+  /* 어떤 문장의 첫 줄을 내어쓰거나 (-n), 들여쓸 수 있음 */
+  text-indent: -50px;
+}
+.property___fonts h1 {
+  /* 
+font-style
+normal: 기울기 없음 (기본값)
+italic: 이텔릭체
+
+font-weight
+normal, 400: 기본 두께
+bold, 700: 두껍게
+100 ~ 900: 100단위의 숫자 9개, normal과 bold 이외 두께
+
+font-size
+16px: 기본 크기
+단위: px, em, rem 등 단위로 지정
+
+line-height: 한 줄의 높이, 행간과 유사
+normal: 브라우저의 기본 정의 사용
+숫자: 요소의 글꼴 크기의 배수로 지정 (권장)
+-> 코드가 짧아지고, 지속적으로 배수로 지정됨, px을 사용한다면 글자의 크기가 바뀌면 다시 조정해야함
+단위: px, em, rem 등 단위로 지정
+
+font-family: 글꼴1, "글꼴2", ...글꼴계열;
+** 띄어쓰기 등 특수문자가 포함된 글꼴이름은 큰 따옴표로 묶어야함
+글꼴의 후보를 나열하면 브라우저가 맨 앞에있는 글꼴부터 사용가능한 글꼴을 사용함
+body태그에만 명시해도 body태그이하의 모든 요소에 상속이됨
+ex)  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo,
+  monospace;
+web에서 볼 수 있는 대부분의 글꼴: sans-serif (고딕체 계열)
+vs code등 코드를 짤 때 주로 사용되는 글꼴: monospace (고정너비(가로폭이 동등)글꼴 계열)
+*/
+  font-size: 24px;
+  font-weight: 700;
+  font-style: italic;
+  font-family: serif;
+}
+.property___fonts p {
+  width: 350px;
+  padding: 10px;
+  border: 1px solid;
+  box-sizing: border-box;
+  /* 한 줄에 대한 높이 */
+  line-height: 1.4;
+}
+.property__opacity .parent {
+  width: 100px;
+  height: 100px;
+  padding: 30px;
+  background-color: royalblue;
+}
+.property__opacity .child {
+  width: 200px;
+  height: 100px;
+  background-color: orange;
+  /*   
+  opacity 기본값: 1
+  0~1까지 숫자로 지정할 수 있음
+  0.5 -> .5 로 생략 가능
+  */
+  opacity: 0.5;
+}
+.property__display span {
+  display: block;
+  width: 120px;
+  height: 30px;
+  background-color: royalblue;
+  color: white;
+}
+.property__overflow .parent {
+  width: 200px;
+  height: 150px;
+  background-color: royalblue;
+  margin: 20px;
+  padding: 20px;
+  overflow: auto;
+  /*
+  child의 내용이 parent보다 더 큰 경우 overflow: hidden을 사용하면 parent 요소크기 만큼만 보여지고 나머지는 짤림
+  -overflow: visible (기본값) -> 넘친 내용을 그대로 보여줌
+  -overflow: hidden -> 넘친 부분을 잘라줌
+  -overflow: scroll -> 넘친 부분을 잘라내지만 x,y 축 모두 스크롤바가 생김 (요소가 안넘치는 축도 생김)
+  -overflow: auto -> 넘친 축만 스크롤바가 생김
+  -overflow-x -> x축으로 넘치는 부분만 체크
+  -overflow-y -> y축으로 넘치는 부분만 체크
+  */
+}
+.property__overflow .child {
+  width: 300px;
+  height: 100px;
+  background-color: orange;
+}
+.property__box-sizing .item {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+}
+.property__box-sizing .item:first-child {
+  border: 4px solid red;
+  padding: 20px;
+  /*    
+  box-sizing
+  content-box: 요소의 내용으로 크기 계산
+  border-box: 요소의 내용+padding+border로 크기 계산
+  border와 padding과 같이 요소의 크기에 영향을 주는 속성이 있는데 최종 크기를 내가 지정한 크기로 하고 싶을때 box-sizing을 border-box로 
+  **box-sizing의 기본값: content-box
+  */
+  box-sizing: border-box;
+}
+
+.property__border .container .item {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+}
+.property__border .container .item:first-child {
+  border: 4px dashed red;
+}
+.property__padding .container .item {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  border: 4px solid red;
+}
+.property__padding .container .item:first-child {
+  padding: 20px;
+}
+.property__margin .container .item {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  border: 4px solid red;
+  margin: -20px 10px;
+}
+
+.property__units .parent {
+  width: 300px;
+  height: 200px;
+  background-color: royalblue;
+}
+.property__units .child {
+  width: 50vw;
+  height: 100px;
+  background-color: orange;
+}
+.property__width-height .parent {
+  width: 300px;
+  height: 200px;
+  background-color: royalblue;
+}
+
+.property__width-height .child {
+  min-width: 400px;
+  height: 100px;
+  background-color: orange;
+}
+
 .box {
   width: 100px;
   height: 100px;
@@ -8,9 +325,6 @@
 .box:focus {
   width: 300px;
   background-color: royalblue;
-}
-
-input {
 }
 
 input:focus {
@@ -45,13 +359,13 @@ input:focus {
 - color: 글자 색상
 - text-align: 정렬
 */
-.parent {
+.parent_ {
   width: 300px;
   height: 200px;
   background-color: red;
 }
 
-.child {
+.child_ {
   width: 100px;
   /* 
   inherit: 강제 상속
@@ -67,10 +381,6 @@ input:focus {
 - 점수가 높은 선언이 우선
 - 점수가 같다면, *가장 마지막에 해석된 선언*이 우선
 */
-
-div {
-  font-size: 70px;
-}
 
 /* class 선택자: 10점 */
 .hello {
