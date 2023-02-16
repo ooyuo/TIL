@@ -1,6 +1,172 @@
 html {
   font-size: 16px;
 }
+.transform .container {
+  width: 100px;
+  height: 100px;
+  background-color: royalblue;
+  perspective: 250px;
+}
+.transform .container .item {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateX(0deg);
+  backface-visibility: hidden;
+  /*   
+  transform: 요소의 변환 효과
+  transform: 변환함수1 변환함수2 변환함수3...;
+  transform: 원근법 이동 크기 회전 기울임;
+  
+  2D 변환 함수
+  - translate(x, y): 이동(x축, y축)
+  - translateX(x): 이동(x축)
+  - translateY(y): 이동(y축) 
+  - scale(x,y): 크기(x축, y축)
+  - rotate(degree): 회전(각도)
+  - skewX(x): 기울임(x축)
+  - skewY(y): 기울임(y축)
+  * translate- px사용, scale- 단위없음, rotate- deg사용, skew- deg사용
+  
+  3D 변환 함수
+  - rotateX(x): 회전(x축)
+  - rotateY(y): 회전(y축)
+  - perspective(n): 원근법(거리)
+  * rotate- deg사용, perspective- px사용
+  
+  perspective: 하위요소를 관찰하는 원근 거리를 지정 (속성과 함수 차이)
+  - 속성 perspective: 600px;, 관찰대상의부모에 적용, 기준점: perspective-origin
+  - 함수 transform: perspective(600px);, 관찰대상에 적용, 기준점: transform-origin
+  * 부모요소에 원급법을 부여하는 perspective속성이 많이 사용됨
+  
+  backface-visibility: 3D 변환으로 회전된 요소의 뒷면 숨김 여부
+  - visible: 뒷면 보임 (기본값)
+  - hidden: 뒷면 숨김
+  * 요소의 뒷면이 출력될 일이 있을때만 안보이게 설정
+  
+  - transform 속성의 2D 회전을 지원하는 함수: rotate()
+  - 관찰 대상의 부모요소에 원급법을 지정하는 속성: perspective
+  - skewX 변환함수에서 값으로 단위: deg
+  - perspective 함수에서 원근거리가 적용되는 대상: 관찰 대상 자체
+  - 요소의 뒷면을 숨기는 속성과 값: backface-visibility: hidden
+  */
+}
+.transition div {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  /*    
+  transition: 요소의 전환(시작과 끝)효과를 지정하는 단축 속성
+  transition: 속성명 지속시간(필수포함속성) 타이밍함수 대기시간;
+  transition-property transition-duration transition-timing-function transition-delay
+  
+  transition-property: 전환효과를 사용할 속성이름을 지정
+  - all: 모든 속성에 적용 (기본값)
+  - 속성이름: 전환효과를 사용할 속성이름 명시
+  
+  transition-duration: 전환효과의 지속시간 지정
+  - 0s: 전환효과 없음 (기본값)
+  - 시간: 지속시간(s)을 지정
+  
+  transition-timing-function: 전환효과의 타이밍(easing) 함수를 지정
+  - ease: 느리게 - 빠르게 - 느리게 (기본값)
+  - linear: 일정하게
+  - ease-in: 느리게 - 빠르게
+  - ease-out: 빠르게 - 느리게
+  - ease-in-out: 느리게 - 빠르게 - 느리게
+  * easing cheetshit: https://easings.net/
+  
+  transition-delay: 전환효과가 몇 초 뒤에 시작할지 대기시간을 지정
+  - 0s: 대기시간 없음
+  - 시간: 대기시간(s) 지정
+  * transition 속성의 값으로 시간이 2개가 있다면 
+  첫번째: 지속시간, 두번째: 대기시간
+
+  - transition-property의 기본값: all
+  - transition 단축 속성의 필수 포함 속성: transition-duration
+  */
+  transition: 1s 0.5s;
+}
+
+.transition div:active {
+  width: 300px;
+  background-color: royalblue;
+}
+.display-flex-container .container .item {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed red;
+  background-color: orange;
+  /*    
+  order: flex item의 순서
+  - 0: 순서 없음 (기본값)
+  - 숫자: 숫자가 작을 수록 먼저
+  
+  flex-grow: flex item의 증가 너비 비율
+  - 0: 증가 비율 없음 (기본값)
+  - 숫자: 증가 비율
+  
+  flex-shrink: flex item의 감소너비 비율
+  - 1: flex container 너비에 따라 감소비율 적용 (기본값)
+  - 숫자: 감소 비율
+  * 수평정렬을 할때 컨테이너 너비가 모자르면 요소가 찌그러지는데 값을 0으로 부여하면 컨테이너가 줄어들어도 각 item들의 너비가 유지됨
+  
+  flex-basis: flex item의 공간 배분 전 기본 너비
+  - auto: 요소의 content너비 (기본값)
+  - 단위: px, em, rem
+  * flex-basis를 0으로 명시해주면 기본 content의 너비에 상관없이 박스가 정확히 나눠짐
+  */
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.display-flex-container .container .item:nth-child(3) {
+  flex-grow: 2;
+}
+.display-flex-container .container {
+  width: 500px;
+  height: 300px;
+  background-color: royalblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*   
+  flex: 블록요소와 같이 flex container 정의
+  inline-flex: 인라인요소와 같이 flex container 정의 (container 들이 가로로 쌓임)
+
+  flex-direction
+  - row: 행 축 (좌 => 우)
+  - row-reverse: 행 축 (우 => 좌)
+  - column: 열 측 (위 => 아래)
+  - column-reverse: 열 축 (아래 => 위)
+  */
+  /*   
+  flex-wrap: no-rwap (기본값)
+  
+  justify-content: 주축의 정렬 방법
+  - flex-start: flex items를 시작점으로 정렬 (기본값)
+  - flex-end: 끝점으로 정렬
+  - center: 가운데 정렬
+  
+  align-content: 교차 축의 **여러줄** 정렬방법
+  1. items이 두줄 이상이어야함
+  2. 정렬가능한 여백이 있어야함
+  - stretch: flex itens를 시작점으로 정렬 (기본값)
+  - flex-start: 시작점으로 정렬
+  - flex-end: 끝점으로 정렬
+  - center: 가운데 정렬
+  
+  align-items: 교차 축의 **한 줄** 정렬 방법
+  - stretch: flex items를 교차 축으로 늘림 (기본값)
+  - flex-start: 각 줄의 시작점으로 정렬
+  - flex-end: 각 줄의 끝점으로 정렬
+  - center: 각 줄의 가운데 정렬
+  - baseline: 각 줄의 문자 기준선에 정렬
+  */
+}
 .property__position-switch-inline-to-block {
   height: 150px;
 }
@@ -47,10 +213,10 @@ html {
 .property__position .container {
   /* 
 position 요소의 위치 지정 기준
-static: 기준 없음
-relative: 요소 자신을 기준
-absolute: 위치 상 부모 요소를 기준
-fixed: 뷰포트(브라우저)를 기준
+- static: 기준 없음
+- relative: 요소 자신을 기준
+- absolute: 위치 상 부모 요소를 기준
+- fixed: 뷰포트(브라우저)를 기준
 
 position과 같이 사용하는 css 속성들
 [top, bottom, left, right, z-index] 사용가능, 음수도 가능
@@ -84,18 +250,18 @@ auto: 브라우저가 계산(기본값)
 .property__background div {
   /* 
 background-color
-transparent: 투명함(기본값)
-색상: 지정 가능한 색상
+- transparent: 투명함(기본값)
+- 색상: 지정 가능한 색상
 
 background-image
-none: 이미지없음
-url("경로"): 이미지 경로
+- none: 이미지없음
+- url("경로"): 이미지 경로
 
 background-repeat
-repeat: 이미지를 수직, 수평 반복(기본값)
-repeat-x: 이미지를 수평 반복
-repeat-y: 이미지를 수직 반복
-no-repeat: 반복 없음
+- repeat: 이미지를 수직, 수평 반복(기본값)
+- repeat-x: 이미지를 수평 반복
+- repeat-y: 이미지를 수직 반복
+- no-repeat: 반복 없음
 
 background-position (요소의 배경이미지 위치)
 0% 0%: 0% ~ 100% 사이 값 (기본값) - 잘 쓰지 않음
@@ -103,14 +269,14 @@ background-position (요소의 배경이미지 위치)
 단위: px, em, rem
 
 background-size 요소의 배경이미지 크기
-auto: 이미지의 실제 크기(기본값)
-단위: px, em, rem 등 단위로 지정
-cover: 비율을 유지, 요소의 더 넓은 너비에 맞춤
-contain: 비율을 유지, 요소의 더 짧은 너비에 맞춤
+- auto: 이미지의 실제 크기(기본값)
+- 단위: px, em, rem 등 단위로 지정
+- cover: 비율을 유지, 요소의 더 넓은 너비에 맞춤
+- contain: 비율을 유지, 요소의 더 짧은 너비에 맞춤
 
 background-attachment 요소의 배경 이미지 스크롤 특성
-scroll: 이미지가 요소를 따라서 같이 스크롤
-fixed: 이미지가 뷰포트에 고정, 스크롤 X
+- scroll: 이미지가 요소를 따라서 같이 스크롤
+- fixed: 이미지가 뷰포트에 고정, 스크롤 X
 
 요소 배경에 이미지를 삽입하는 속성: background-image
 요소 배경에 이미지를 삽입할 때 사용하는 함수: url("이미지경로")
@@ -129,19 +295,19 @@ fixed: 이미지가 뷰포트에 고정, 스크롤 X
 .property__a-p a {
   /* 
 text-align
-left: 기본값
-right
-center
-jusify: 양쪽 정렬
+- left: 기본값
+- right
+- center
+- jusify: 양쪽 정렬
 
 text-decoration
-none: 장식없음 (기본값)
-underline: 밑줄
-line-through: 중앙선
+- none: 장식없음 (기본값)
+- underline: 밑줄
+- line-through: 중앙선
 
 text-indent
-0: 들여쓰기 없음
-단위: px, em, rem 등 단위로 지정
+- 0: 들여쓰기 없음
+- 단위: px, em, rem 등 단위로 지정
 
 문자를 수평정렬: text-align
 문자를 들여쓰는(내어쓰는) 속성: text-indent
@@ -164,17 +330,17 @@ text-indent
 .property___fonts h1 {
   /* 
 font-style
-normal: 기울기 없음 (기본값)
-italic: 이텔릭체
+- normal: 기울기 없음 (기본값)
+- italic: 이텔릭체
 
 font-weight
-normal, 400: 기본 두께
-bold, 700: 두껍게
-100 ~ 900: 100단위의 숫자 9개, normal과 bold 이외 두께
+- normal, 400: 기본 두께
+- bold, 700: 두껍게
+- 100 ~ 900: 100단위의 숫자 9개, normal과 bold 이외 두께
 
 font-size
-16px: 기본 크기
-단위: px, em, rem 등 단위로 지정
+- 16px: 기본 크기
+- 단위: px, em, rem 등 단위로 지정
 
 line-height: 한 줄의 높이, 행간과 유사
 normal: 브라우저의 기본 정의 사용
@@ -237,12 +403,12 @@ vs code등 코드를 짤 때 주로 사용되는 글꼴: monospace (고정너비
   overflow: auto;
   /*
   child의 내용이 parent보다 더 큰 경우 overflow: hidden을 사용하면 parent 요소크기 만큼만 보여지고 나머지는 짤림
-  -overflow: visible (기본값) -> 넘친 내용을 그대로 보여줌
-  -overflow: hidden -> 넘친 부분을 잘라줌
-  -overflow: scroll -> 넘친 부분을 잘라내지만 x,y 축 모두 스크롤바가 생김 (요소가 안넘치는 축도 생김)
-  -overflow: auto -> 넘친 축만 스크롤바가 생김
-  -overflow-x -> x축으로 넘치는 부분만 체크
-  -overflow-y -> y축으로 넘치는 부분만 체크
+  - overflow: visible (기본값) -> 넘친 내용을 그대로 보여줌
+  - overflow: hidden -> 넘친 부분을 잘라줌
+  - overflow: scroll -> 넘친 부분을 잘라내지만 x,y 축 모두 스크롤바가 생김 (요소가 안넘치는 축도 생김)
+  - overflow: auto -> 넘친 축만 스크롤바가 생김
+  - overflow-x -> x축으로 넘치는 부분만 체크
+  - overflow-y -> y축으로 넘치는 부분만 체크
   */
 }
 .property__overflow .child {
@@ -260,8 +426,8 @@ vs code등 코드를 짤 때 주로 사용되는 글꼴: monospace (고정너비
   padding: 20px;
   /*    
   box-sizing
-  content-box: 요소의 내용으로 크기 계산
-  border-box: 요소의 내용+padding+border로 크기 계산
+  - content-box: 요소의 내용으로 크기 계산
+  - border-box: 요소의 내용+padding+border로 크기 계산
   border와 padding과 같이 요소의 크기에 영향을 주는 속성이 있는데 최종 크기를 내가 지정한 크기로 하고 싶을때 box-sizing을 border-box로 
   **box-sizing의 기본값: content-box
   */
