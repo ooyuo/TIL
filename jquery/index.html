@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+
+      /* 
+        [attribute] ==> $("[id]")
+        [attribute] ==> $("[id = first]")
+        [attribute != value]
+        [attribute ^= value] starting from value
+        [attrivute $= value]
+        $[attribute *= value]
+        $[attrobute |= value]
+        $[attribute ~= value] 
+        
+        first-child
+        last-child
+        nth-child(1)
+        nth-last-child(1)
+
+        first-of-type
+        last-of-type
+        nth-of-type(1)
+        nth-last-of-type(1)
+
+        only-child
+        only-of-type
+
+        Child Selectors
+          1. Direct child selector(>)
+          2. Descendent selector( )
+
+        Sibling Selectors
+          1. Adjacent sibling selector(+)
+          2. General sibling selector(~)
+
+        :hidden
+        :visible
+
+        :enabled
+        :disabled
+
+        :checked
+        :selected
+
+        :animated
+
+        :contains(text)
+        :has()
+
+        :empty
+        :parent
+
+        :not
+
+        # mouse events
+        - click
+        - dblclick
+        - mouseenter
+        - mouseleave
+        - hover
+        - mousedown
+        - mouseup
+
+        # 양식 events
+        - focus
+        - blur
+
+        - focusin
+        - focusout
+
+        - change
+        - select
+        - submit
+      */
+      // #2. focus된 경우 input[type=text] bg설정, focus-out 설정
+      $(".selectThis>input").focus(function () {
+        $(this).css("background-color", "lightgray")
+      })
+      $(".selectThis>input").blur(function () {
+        $(this).css("background-color", "white")
+      })
+
+      $("#btnClick").click(function () {
+        $("#myPara").css("background-color", "pink");
+      })
+    })
+  </script>
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>This Selector</h2>
+  <div class="selectThis">
+    <label for="fName">First name: </label>
+    <input type="text" id="fName"><br>
+    <label for="lName">Last name: </label>
+    <input type="text" id="lName">
+  </div>
+  <hr />
+  <p id="myPara">First jQuery</p>
+  <button id="btnClick">Click me</button>
+
+</body>
+
+</html>
