@@ -1,6 +1,48 @@
 html {
   font-size: 16px;
 }
+.animation .container {
+  width: 100px;
+  height: 100px;
+  perspective: 300px;
+}
+.animation .container .item {
+  width: 100px;
+  height: 100px;
+  border: 4px solid red;
+  box-sizing: border-box;
+  font-size: 60px;
+  /*   뒷면이 어떻게 보일건지 설정 */
+  backface-visibility: hidden;
+  transition: 1s;
+}
+.animation .container .item.front {
+  /*  front, back을 겹치게함  */
+  position: absolute;
+  transform: rotateY(0deg);
+}
+.animation .container:hover .item.front {
+  transform: rotateY(180deg);
+}
+.animation .container .item.back {
+  transform: rotateY(-180deg);
+}
+.animation .container:hover .item.back {
+  transform: rotateY(0deg);
+}
+
+.iframe .container {
+  width: 500px;
+  background-color: royalblue;
+}
+.iframe .item {
+  width: 100%;
+  height: 0;
+  /*  부모와 자식요소의 몇대 몇 비율의 가로세로 비율을 설정할 수 있음
+  해당 요소들은 2:1 임*/
+  padding-top: 56.25%;
+  /*   비율계산 - 100% : 56.25% = 16 : 9 */
+}
 .transform .container {
   width: 100px;
   height: 100px;
