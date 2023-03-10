@@ -1,0 +1,81 @@
+.signin {
+  margin-top: 120px;
+  padding: 100px 0 150px;
+  background-image: url("../images/signin_bg.jpg");
+  background-repeat: no-repeat;
+  /* 이미지 정가운데 위치 */
+  background-position: center;
+  /* 스크롤할때 요소와같이 스크롤하지않고, 뷰포트에 고정  */
+  background-attachment: fixed;
+  /* 배경이미지가 뷰포트의 넓은 너비에 맞춰짐 */
+  background-size: cover;
+}
+.signin h1 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.signin__card {
+  width: 500px;
+  margin: 0 auto;
+  border-radius: 6px;
+  background-color: #f6f5f0;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+  color: #555;
+}
+.signin__card h2 {
+  padding: 30px;
+  font-size: 18px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+.signin__card h2 strong {
+  font-weight: 700;
+  color: #006633;
+}
+.signin__card form {
+  padding: 30px 22px;
+}
+.signin__card form input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  /* 요소가 포커스되었을때 파란선을 없애줌 */
+  outline: none;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.signin__card form [type="submit"] {
+  background-color: #006633;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+.signin__card form p {
+  font-size: 12px;
+  color: #006633;
+  text-align: center;
+}
+.signin__card .actions {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+.signin__card .actions a {
+  /* 요소의 증가너비가 1 */
+  flex-grow: 1;
+  /* 기본너비 0 */
+  flex-basis: 0;
+  text-align: center;
+  padding: 20px;
+  color: #555;
+  font-size: 14px;
+  border-right: 1px solid #ddd;
+}
+.signin__card .actions a:last-child {
+  border-right: none;
+}
